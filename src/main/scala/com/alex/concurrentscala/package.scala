@@ -1,10 +1,15 @@
 package com.alex
 
+import java.util.concurrent.TimeUnit
+
+import scala.concurrent.ExecutionContext
+
 package object concurrentscala {
 
-  def log(statement: String) = {
+  def log(statement: Any) = {
     val name = Thread.currentThread.getName
-    println(s"$name: $statement")
+    val message = statement.toString
+    println(s"$name: $message")
   }
 
   def thread(body: => Unit) = {
@@ -14,4 +19,12 @@ package object concurrentscala {
     t.start()
     t
   }
+
+  def execute(body: => Unit) = ExecutionContext.global.execute {
+    new Runnable {
+      override def run(): Unit = body
+    }
+  }
+
+  def sleep(ms: Int) = Thread.sleep(ms)
 }

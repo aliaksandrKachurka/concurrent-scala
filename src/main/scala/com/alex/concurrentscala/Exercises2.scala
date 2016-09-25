@@ -1,26 +1,39 @@
 package com.alex.concurrentscala
 
-object Exercises2 extends App {
+import scala.collection.mutable.ArrayBuffer
 
-  def parallel[A, B](a: => A, b: => B): (A, B) = {
-    var aResult: Any = 1
-    var bResult: Any = 1
-    val t1 = thread { aResult = a }
-    val t2 = thread { bResult = b }
-    t1.join()
-    t2.join()
-    (aResult.asInstanceOf[A], bResult.asInstanceOf[B])
+
+object Exercises2 extends App {
+  var a = new ArrayBuffer[Int](2)
+
+  def write(x: Int) = a.synchronized {
+    a.clear()
+    a += x
+    log("write " + a(0))
+    a.notify()
+    a.wait()
   }
 
-  val x = parallel(
-    {
-      3 + 2
-    },
-    {
-      Thread.sleep(5000)
-      "hey"
+  def read() = a.synchronized {
+    for (i <- 1 to 10) {
+      while (a.isEmpty) {
+        a.wait()
+      }
+      log("read " + a(0))
+      a.notify()
+      a.wait()
     }
-  )
+  }
 
-  println(x)
+  val x = thread {
+    read()
+  }
+
+  val y = thread {
+    for (i <- 1 to 10) {
+      write(i)
+    }
+  }
+  x.join()
+  y.join()
 }
