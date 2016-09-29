@@ -1,20 +1,22 @@
 package com.alex.concurrentscala.filemanager
 
 import java.io.File
-import java.util.concurrent.ConcurrentHashMap
 
 import com.alex.concurrentscala._
 import org.apache.commons.io.FileUtils
 
 import scala.annotation.tailrec
+import scala.collection.concurrent.TrieMap
 import scala.collection.convert.decorateAsScala._
 
 class FileSystem(val root: String) {
   val rootDir = new File(root)
-  val files = new ConcurrentHashMap[String, Entry]().asScala
+  val files = new TrieMap[String, Entry]()
   for (f <- FileUtils.iterateFiles(rootDir, null, false).asScala) {
     files.put(f.getName, new Entry(false))
   }
+
+  def allFiles = files.keys
 
   def deleteFile(fileName: String) = {
     files.get(fileName) match {
