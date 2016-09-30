@@ -1,8 +1,6 @@
-package com.alex.concurrentscala
+package com.alex.concurrentscala.basic
 
-import java.util.concurrent.{Executor, ExecutorService, TimeUnit}
-
-import scala.concurrent._
+import com.alex.concurrentscala._
 
 object Chapter3 extends App {
   for (i <- 1 to 32) execute {

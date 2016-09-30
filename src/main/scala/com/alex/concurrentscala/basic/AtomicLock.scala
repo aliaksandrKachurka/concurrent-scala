@@ -1,6 +1,7 @@
-package com.alex.concurrentscala
+package com.alex.concurrentscala.basic
 
 import java.util.concurrent.atomic.AtomicBoolean
+import com.alex.concurrentscala._
 
 object AtomicLock extends App {
   val lock = new AtomicBoolean(false)

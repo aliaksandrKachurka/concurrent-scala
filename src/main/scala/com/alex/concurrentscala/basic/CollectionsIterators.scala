@@ -1,6 +1,8 @@
-package com.alex.concurrentscala
+package com.alex.concurrentscala.basic
 
 import java.util.concurrent.LinkedBlockingDeque
+
+import com.alex.concurrentscala._
 
 object CollectionsIterators extends App {
   val queue = new LinkedBlockingDeque[String]

@@ -1,6 +1,8 @@
-package com.alex.concurrentscala
+package com.alex.concurrentscala.basic
 
 import java.util.concurrent.atomic.AtomicReference
+
+import com.alex.concurrentscala._
 
 import scala.annotation.tailrec
 

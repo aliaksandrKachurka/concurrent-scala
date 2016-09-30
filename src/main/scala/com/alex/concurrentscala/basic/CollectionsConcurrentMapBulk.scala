@@ -1,9 +1,8 @@
-package com.alex.concurrentscala
+package com.alex.concurrentscala.basic
 
-import java.util.concurrent.ConcurrentHashMap
+import com.alex.concurrentscala._
 
 import scala.collection.concurrent.TrieMap
-import scala.collection.convert.decorateAsScala._
 
 object CollectionsConcurrentMapBulk extends App {
   val names = new TrieMap[String, Int]()

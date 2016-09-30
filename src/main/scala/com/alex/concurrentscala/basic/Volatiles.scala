@@ -1,4 +1,6 @@
-package com.alex.concurrentscala
+package com.alex.concurrentscala.basic
+
+import com.alex.concurrentscala._
 
 class Page(val text: String, var position: Int)
 

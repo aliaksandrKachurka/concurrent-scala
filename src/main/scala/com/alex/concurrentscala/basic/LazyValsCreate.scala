@@ -1,4 +1,6 @@
-package com.alex.concurrentscala
+package com.alex.concurrentscala.basic
+
+import com.alex.concurrentscala._
 
 object LazyValsCreate extends App {
 
