@@ -1,9 +1,9 @@
-package com.alex.concurrentscala.futures
+package com.alex.concurrentscala.ch4.futures
 
-import scala.concurrent.Future
 import com.alex.concurrentscala._
 
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.Future
 import scala.io.Source
 
 object FuturesCreate extends App {

@@ -1,4 +1,4 @@
-package com.alex.concurrentscala.futures
+package com.alex.concurrentscala.ch4.futures
 
 import com.alex.concurrentscala._
 

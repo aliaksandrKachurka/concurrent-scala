@@ -5,7 +5,6 @@ apply plugin: 'java'
 apply plugin: 'scala'
 apply plugin: 'application'
 
-mainClassName = "com.alex.Runner"
 
 repositories {
     mavenCentral()
@@ -13,22 +12,13 @@ repositories {
 
 dependencies {
     compile 'org.scala-lang:scala-library:2.11.8'
-    // https://mvnrepository.com/artifact/org.scala-lang.modules/scala-async_2.11.0-M6
-    compile group: 'org.scala-lang.modules', name: 'scala-async_2.11.0-M6', version: '0.9.0-M4'
-    // https://mvnrepository.com/artifact/com.netflix.rxjava/rxjava-scala
+    compile group: 'org.scala-lang.modules', name: 'scala-async_2.11', version: '0.9.6-RC5'
     compile group: 'com.netflix.rxjava', name: 'rxjava-scala', version: '0.20.7'
-    // https://mvnrepository.com/artifact/org.scala-lang/scala-swing
     compile group: 'org.scala-lang', name: 'scala-swing', version: '2.11.0-M7'
-    // https://mvnrepository.com/artifact/org.scala-stm/scala-stm_2.11
     compile group: 'org.scala-stm', name: 'scala-stm_2.11', version: '0.7'
-    // https://mvnrepository.com/artifact/com.typesafe.akka/akka-remote_2.11
     compile group: 'com.typesafe.akka', name: 'akka-remote_2.11', version: '2.4.10'
-    // https://mvnrepository.com/artifact/com.storm-enroute/scalameter_2.11
     compile group: 'com.storm-enroute', name: 'scalameter_2.11', version: '0.7'
-    // https://mvnrepository.com/artifact/commons-io/commons-io
     compile group: 'commons-io', name: 'commons-io', version: '2.5'
-    // https://mvnrepository.com/artifact/org.scalaz/scalaz-concurrent_2.11
     compile group: 'org.scalaz', name: 'scalaz-concurrent_2.11', version: '7.3.0-M5'
-    // https://mvnrepository.com/artifact/com.github.scala-blitz/scala-blitz_2.11
     compile group: 'com.github.scala-blitz', name: 'scala-blitz_2.11', version: '1.2'
 }
