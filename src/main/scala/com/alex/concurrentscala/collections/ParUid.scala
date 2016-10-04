@@ -1,0 +1,16 @@
+package com.alex.concurrentscala
+package collections
+
+import java.util.concurrent.atomic.AtomicLong
+
+object ParUid extends App {
+  private val uid = new AtomicLong(0L)
+  val seqtime = timed {
+    for (i <- 0 until 10000000) uid.incrementAndGet()
+  }
+  log(s"Sequential time $seqtime ms")
+  val partime = timed {
+    for (i <- (0 until 10000000).par) uid.incrementAndGet()
+  }
+  log(s"Parallel time $partime ms")
+}

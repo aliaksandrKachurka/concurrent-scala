@@ -35,4 +35,12 @@ package object concurrentscala {
   }
   logger.start()
   def logMessage(message: String) = messages.offer(message)
+
+  @volatile var dummy: Any = _
+  def timed[T](body: => T): Double = {
+    val start = System.currentTimeMillis
+    dummy = body
+    val end = System.currentTimeMillis
+    end - start
+  }
 }
